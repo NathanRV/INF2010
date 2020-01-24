@@ -5,7 +5,9 @@ import java.util.Set;
 public class Ellipse extends BaseShape {
     // TODO creer une ellipse avec une largeur et une longueur.
     public Ellipse(Double widthRadius, Double heightRadius) {
-        // ...
+        super();
+        Point2d point=new Point2d(widthRadius,heightRadius);
+        super.add(point);
     }
 
     private Ellipse(Set<Point2d> coords) {

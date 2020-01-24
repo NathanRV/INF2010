@@ -36,8 +36,7 @@ public class BaseShape {
         coords.remove(coord);
     }
     public void remove(BaseShape shape) {
-        /*for (Point2d point :
-                shape.getCoords()) {
+        /*for (Point2d point : shape.getCoords()) {
             coords.remove(point);
         }*/
         coords.removeAll(shape.getCoords());
@@ -55,34 +54,40 @@ public class BaseShape {
 
     // TODO appliquer la translation sur la forme.
     public BaseShape translate(Point2d point) {
-        for (Point2d pt:coords) {
-            pt.translate(point);
-        }
-        return this;
+        BaseShape baseShape=clone();
+        baseShape.coords=baseShape.translateAll(point);
+        return baseShape;
     }
 
     // TODO appliquer la translation sur la liste.
     public Set<Point2d> translateAll(Point2d point) {
-        for (Point2d pt:coords) {
-            pt.translate(point);
+        HashSet<Point2d> set=new HashSet<Point2d>(coords);
+
+        for(Point2d point2d : set) {
+            set.remove(point2d);
+            set.add(point2d.translate(point));
         }
-        return coords;
+
+        return set;
     }
 
     // TODO appliquer la rotation sur la forme.
     public BaseShape rotate(Double angle) {
-        for (Point2d pt:coords) {
-            pt.rotate(angle);
-        }
-        return this;
+        BaseShape baseShape=this.clone();
+        baseShape.coords=baseShape.rotateAll(angle);
+        return baseShape;
     }
 
     // TODO appliquer la rotation sur la liste.
     public Set<Point2d> rotateAll(Double angle) {
-        for (Point2d pt:coords) {
-            pt.rotate(angle);
+        HashSet<Point2d> set=new HashSet<Point2d>(coords);
+
+        for (Point2d pt:set) {
+            set.remove(pt);
+            set.add(pt.rotate(angle));
         }
-        return coords;
+
+        return set;
     }
 
     // TODO retourner une nouvelle forme.

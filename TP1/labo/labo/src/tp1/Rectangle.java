@@ -23,18 +23,27 @@ public class Rectangle extends BaseShape {
     // TODO appliquer la translation sur la forme.
     @Override
     public Rectangle translate(Point2d point) {
-        return null;
+        Rectangle rectangle=this.clone();
+        for(Point2d point2d:rectangle.getCoords()){
+            point2d.translate(point);
+        }
+        return rectangle;
     }
 
     // TODO appliquer la rotation sur la forme.
     @Override
     public Rectangle rotate(Double angle) {
-        return null;
+        Rectangle rectangle=this.clone();
+        for (Point2d point:rectangle.getCoords()) {
+            point.rotate(angle);
+        }
+        return rectangle;
     }
 
     // TODO retourner une nouvelle forme.
     @Override
     public Rectangle clone() {
-        return null;
+        Rectangle rectangle=new Rectangle(this.getCoords());
+        return rectangle;
     }
 }

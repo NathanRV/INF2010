@@ -9,22 +9,53 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_H() {
-        return null;
+        //H
+        Double degrees90 = Math.toRadians(90);
+        Double spacing = stripeThickness * 2;
+        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
+        BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing, 0.0));
+        BaseShape middleStripe = mainStripe.rotate(degrees90);
+        BaseShape rightStripe = mainStripe.translate(new Point2d(spacing, 0.0));
+        leftStripe.add(middleStripe);
+        leftStripe.add(rightStripe);
+        return leftStripe;
     }
 
     // TODO
     public static BaseShape create_e() {
-        return null;
+        //E
+        Double degrees90 = Math.toRadians(90);
+        Double spacing = stripeThickness * 2;
+        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
+        BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing, 0.0));
+        BaseShape halfStripe = new Rectangle(stripeThickness, maxHeight);
+        BaseShape middleStripe = halfStripe.rotate(degrees90);
+        BaseShape upStripe = halfStripe.rotate(degrees90).translate(new Point2d(0.0, spacing));
+        BaseShape downStripe = halfStripe.rotate(degrees90).translate(new Point2d(0.0, -spacing));
+        leftStripe.add(middleStripe);
+        leftStripe.add(upStripe);
+        leftStripe.add(downStripe);
+        return leftStripe;
     }
 
     // TODO
     public static BaseShape create_l() {
-        return null;
+        //L
+        Double degrees90 = Math.toRadians(90);
+        Double spacing = stripeThickness * 2;
+        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
+        BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing, 0.0));
+        BaseShape halfStripe = new Rectangle(stripeThickness, maxWidth);
+        BaseShape downStripe = halfStripe.rotate(degrees90).translate(new Point2d(0.0, -spacing));
+        leftStripe.add(downStripe);
+        return leftStripe;
     }
 
     // TODO
     public static BaseShape create_o() {
-        return null;
+        //O
+        BaseShape ellipse = new Ellipse(maxWidth,maxHeight);
+        return ellipse;
     }
 
     // On vous donne la lettre W comme exemple.
@@ -44,11 +75,27 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_r() {
-        return null;
+        //R
+        Double degrees90 = Math.toRadians(90);
+        Double spacing = stripeThickness * 2;
+        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
+        BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing, 0.0));
+        BaseShape halfStripe = new Rectangle(stripeThickness, maxWidth);
+        BaseShape downStripe = halfStripe.rotate(degrees90).translate(new Point2d(0.0, -spacing));
+        leftStripe.add(downStripe);
+        return leftStripe;
     }
 
     // TODO
     public static BaseShape create_d() {
-        return null;
+        //D
+        Double degrees90 = Math.toRadians(90);
+        Double spacing = stripeThickness * 2;
+        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
+        BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing, 0.0));
+        BaseShape ellipse = new Ellipse(maxWidth,maxHeight);
+        BaseShape halfEllipse=ellipse.translate(new Point2d(0.0,0.0));
+        leftStripe.add(halfEllipse);
+        return leftStripe;
     }
 }
