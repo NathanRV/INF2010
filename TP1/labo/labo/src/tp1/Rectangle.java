@@ -1,19 +1,25 @@
 package tp1;
 
+import org.w3c.dom.css.Rect;
+
 import java.util.Set;
 
 public class Rectangle extends BaseShape {
     // TODO creer un rectangle avec une largeur et une longueur.
     public Rectangle(Double width, Double height) {
         super();
-        Point2d point=new Point2d(width,height);
-        super.add(point);
+       Double halfWidth = width/2;
+       Double halfHeight= height/2;
+        for (double i=-halfWidth; i<=halfWidth; i++){
+            for (double j=-halfHeight; j<= halfHeight; j++){
+                this.add(new Point2d(i,j));
+            }
+        }
     }
 
     // TODO creer un rectangle avec un point contenant la largeur et longueur.
     public Rectangle(Point2d dimensions) {
-        super();
-        super.add(dimensions);
+        this.add(dimensions);
     }
 
     private Rectangle(Set<Point2d> coords) {
@@ -23,21 +29,12 @@ public class Rectangle extends BaseShape {
     // TODO appliquer la translation sur la forme.
     @Override
     public Rectangle translate(Point2d point) {
-        Rectangle rectangle=this.clone();
-        for(Point2d point2d:rectangle.getCoords()){
-            point2d.translate(point);
+      return new Rectangle(translateAll(point));
         }
-        return rectangle;
-    }
 
     // TODO appliquer la rotation sur la forme.
     @Override
-    public Rectangle rotate(Double angle) {
-        Rectangle rectangle=this.clone();
-        for (Point2d point:rectangle.getCoords()) {
-            point.rotate(angle);
-        }
-        return rectangle;
+    public Rectangle rotate(Double angle) { return new Rectangle (rotateAll(angle));
     }
 
     // TODO retourner une nouvelle forme.
