@@ -21,12 +21,9 @@ public class BaseShape {
 
     // TODO ajouter ou retirer des coordonnees a la liste de points.
     public void add(Point2d coord) {
-        coords.add(coord);
+        this.coords.add(coord);
     }
     public void add(BaseShape shape) {
-        /*for (Point2d point:shape.getCoords()) {
-            coords.add(point);
-        }*/
         coords.addAll(shape.getCoords());
     }
     public void addAll(Collection<Point2d> coords) {
@@ -36,10 +33,7 @@ public class BaseShape {
         coords.remove(coord);
     }
     public void remove(BaseShape shape) {
-        /*for (Point2d point : shape.getCoords()) {
-            coords.remove(point);
-        }*/
-        coords.removeAll(shape.getCoords());
+           coords.removeAll(shape.getCoords());
     }
     public void removeAll(Collection<Point2d> coords) {
         this.coords.removeAll(coords);
