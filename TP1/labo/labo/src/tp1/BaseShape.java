@@ -79,7 +79,6 @@ public class BaseShape {
            set.remove(pt);
            set.add(pt.rotate(angle));
         }
-
         return set;
     }
 
