@@ -5,16 +5,17 @@ import java.util.Set;
 public class Ellipse extends BaseShape {
     // TODO creer une ellipse avec une largeur et une longueur.
     public Ellipse(Double widthRadius, Double heightRadius) {
-              for(double i = -widthRadius; i <= widthRadius; i++){
-
-                for(double j = -heightRadius; j <= heightRadius; j+=0.25){
-                    double valeurEllipse = Math.pow(i/widthRadius, 2) + Math.pow(j/heightRadius, 2);
-
-                    if(valeurEllipse <= 1 && valeurEllipse >= 0.7){
-                        add(new Point2d(i ,j));
-                    }
-                }
-            }
+        super();
+        double originWidth = widthRadius/2;
+        double originHeight = heightRadius/2;
+        for(int i = 0; i < widthRadius.intValue(); i++) {
+            this.add(new Point2d(( i - originWidth), originHeight* Math.sqrt(1-(Math.pow((-widthRadius/2+i)/originWidth,2)))));
+            this.add(new Point2d(( i - originWidth), originHeight*(-Math.sqrt(1-(Math.pow((-widthRadius/2+i)/originWidth,2))))));
+        }
+        for(int j = 0; j < heightRadius.intValue(); j++) {
+            this.add(new Point2d(originWidth*Math.sqrt(1-(Math.pow((-heightRadius/2+j)/originHeight,2))),(j - originHeight)));
+            this.add(new Point2d((originWidth*(-Math.sqrt(1-(Math.pow((-heightRadius/2+j)/originHeight,2))))),(j - originHeight)));
+        }
 
 
     }

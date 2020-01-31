@@ -73,7 +73,7 @@ public class BaseShape {
 
     // TODO appliquer la rotation sur la liste.
     public Set<Point2d> rotateAll(Double angle) {
-        Set<Point2d> set=new HashSet<Point2d>(coords);
+        HashSet<Point2d> set=new HashSet<Point2d>(coords);
 
         for (Point2d pt: set) {
            set.remove(pt);
