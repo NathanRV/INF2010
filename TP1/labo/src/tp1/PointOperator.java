@@ -3,7 +3,7 @@ package tp1;
 import java.util.*;
 
 public final class PointOperator {
-    // TODO appliquer la translation sur le vecteur d'entree.
+    // appliquer la translation sur le vecteur d'entree.
     public static Double[] translate(Double[] vector, Double[] translateVector) {
         Double[] secondVector=vector.clone();
         for(int i=0;i<secondVector.length;i++){
@@ -12,7 +12,7 @@ public final class PointOperator {
         return secondVector;
     }
 
-    // TODO appliquer la rotation sur le vecteur d'entree.
+    // appliquer la rotation sur le vecteur d'entree.
     public static Double[] rotate(Double[] vector, Double[][] rotationMatrix) {
         Double[] secondVector=vector.clone();
         for(int i=0;i<secondVector.length;i++){
@@ -25,7 +25,7 @@ public final class PointOperator {
         return secondVector;
     }
 
-    // TODO appliquer le facteur de division sur le vecteur d'entree.
+    // appliquer le facteur de division sur le vecteur d'entree.
     public static Double[] divide(Double[] vector, Double divider) {
         Double[] secondVector=vector.clone();
         for(int i=0;i<secondVector.length;i++){
@@ -34,7 +34,7 @@ public final class PointOperator {
         return secondVector;
     }
 
-    // TODO appliquer le facteur de multiplication sur le vecteur d'entree.
+    // appliquer le facteur de multiplication sur le vecteur d'entree.
     public static Double[] multiply(Double[] vector, Double multiplier) {
         Double[] secondVector=vector.clone();
         for(int i=0;i<secondVector.length;i++){
@@ -43,7 +43,7 @@ public final class PointOperator {
         return secondVector;
     }
 
-    // TODO appliquer le facteur d'addition sur le vecteur d'entree.
+    // appliquer le facteur d'addition sur le vecteur d'entree.
     public static Double[] add(Double[] vector, Double adder) {
         Double[] secondVector=vector.clone();
         for(int i=0;i<secondVector.length;i++){
@@ -52,7 +52,7 @@ public final class PointOperator {
         return secondVector;
     }
 
-    // TODO retourne la coordonnee avec les plus grandes valeurs en X et en Y.
+    // retourne la coordonnee avec les plus grandes valeurs en X et en Y.
     public static Point2d getMaxCoord(Collection<Point2d> coords) {
         ArrayList<Double> x = new ArrayList<>();
         ArrayList<Double> y= new ArrayList<>();
@@ -68,7 +68,7 @@ public final class PointOperator {
         return new Point2d(Collections.max(x), Collections.max(y));
     }
 
-    // TODO retourne la coordonnee avec les plus petites valeurs en X et en Y.
+    // retourne la coordonnee avec les plus petites valeurs en X et en Y.
     public static Point2d getMinCoord(Collection<Point2d> coords) {
         ArrayList<Double> x = new ArrayList<>();
         ArrayList<Double> y= new ArrayList<>();

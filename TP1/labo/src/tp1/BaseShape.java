@@ -6,22 +6,20 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class BaseShape {
-    // Vous aller apprendre plus en details le fonctionnement d'un Set lors
-    // du cours sur les fonctions de hashage, vous pouvez considerez ceci comme une liste normale.
-    private Set<Point2d> coords;
+      private Set<Point2d> coords;
 
-    // TODO Initialiser les points.
+    // Initialiser les points.
     public BaseShape() {
         coords=new HashSet<>();
     }
 
-    // TODO prendre une liste de points et creer une nouvelle forme.
+    // prendre une liste de points et creer une nouvelle forme
     public BaseShape(Collection<Point2d> coords) {
-        this.coords=new HashSet<>();
-        this.coords.addAll(coords);
+        this.coords=new HashSet<>();    // initialiser les points
+        this.coords.addAll(coords);     //ajouter les points
     }
 
-    // TODO ajouter ou retirer des coordonnees a la liste de points.
+    // ajouter ou retirer des coordonnees a la liste de points.
     public void add(Point2d coord) {
         this.coords.add(coord);
     }
@@ -41,21 +39,21 @@ public class BaseShape {
         this.coords.removeAll(coords);
     }
 
-    // TODO retourne les coordonnees de la liste.
+    // retourne les coordonnees de la liste.
     public Set<Point2d> getCoords() {
         Set<Point2d> set=new HashSet<Point2d>();
         set.addAll(coords);
         return set;
     }
 
-    // TODO appliquer la translation sur la forme.
+    // appliquer la translation sur la forme.
     public BaseShape translate(Point2d point) {
         BaseShape baseShape=clone();
         baseShape.coords=baseShape.translateAll(point);
         return baseShape;
     }
 
-    // TODO appliquer la translation sur la liste.
+    // appliquer la translation sur la liste.
     public Set<Point2d> translateAll(Point2d point) {
         Set<Point2d> set=new HashSet<Point2d>();
 
@@ -66,14 +64,14 @@ public class BaseShape {
         return set;
     }
 
-    // TODO appliquer la rotation sur la forme.
+    // appliquer la rotation sur la forme.
     public BaseShape rotate(Double angle) {
         BaseShape baseShape=this.clone();
         baseShape.coords=baseShape.rotateAll(angle);
         return baseShape;
     }
 
-    // TODO appliquer la rotation sur la liste.
+    // appliquer la rotation sur la liste.
     public Set<Point2d> rotateAll(Double angle) {
         HashSet<Point2d> set=new HashSet<Point2d>(coords);
 
@@ -84,7 +82,7 @@ public class BaseShape {
         return set;
     }
 
-    // TODO retourner une nouvelle forme.
+    // retourner une nouvelle forme avec les memes points
     public BaseShape clone() {
         BaseShape baseShape=new BaseShape(this.coords);
         return baseShape;
