@@ -1,5 +1,7 @@
 package tp1;
 
+import org.apache.commons.beanutils.ResultSetIterator;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -75,7 +77,7 @@ public class BaseShape {
     public Set<Point2d> rotateAll(Double angle) {
         HashSet<Point2d> set=new HashSet<Point2d>(coords);
 
-        for (Point2d pt: set) {
+        for (Point2d pt: coords) {
            set.remove(pt);
            set.add(pt.rotate(angle));
         }

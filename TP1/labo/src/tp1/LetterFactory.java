@@ -9,42 +9,29 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_H() {
-
-        /*Double spacing = halfMaxWidth;
-        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
-        BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing,0.0));
-        BaseShape rightStripe = mainStripe.translate( new Point2d(-spacing,0.0));
-        BaseShape middleStripe = new Rectangle(maxWidth, stripeThickness);
-        leftStripe.add(middleStripe);
-        leftStripe.add(rightStripe);
-        return leftStripe;*/
-        Double spacing = maxWidth/2 - stripeThickness/2;
+        Double spacing = stripeThickness*2;
         BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
         BaseShape leftStripe = mainStripe.translate(new Point2d(-(spacing),0.0));
         BaseShape rightStripe = mainStripe.translate(new Point2d(spacing, 0.0));
-        BaseShape middleStripe = new Rectangle(maxWidth - (2*stripeThickness), stripeThickness);
+        BaseShape middleStripe = new Rectangle(maxWidth, stripeThickness);
         leftStripe.add(middleStripe);
         leftStripe.add(rightStripe);
         return leftStripe;
-
-
     }
 
     // TODO
     public static BaseShape create_e() {
         //E
-        Double spacing = halfMaxWidth - stripeThickness/2;
+        Double spacing = 2*stripeThickness;
         BaseShape middleStripe = new Rectangle(maxWidth, stripeThickness);
         BaseShape mainEllipse = new Ellipse(maxWidth, maxHeight);
-        for(int i = 0; i < 2*stripeThickness; i++) {
+        for(int i = 0; i < spacing; i++) {
             middleStripe.add(new Ellipse(maxWidth-i,maxHeight-i));
         }
         BaseShape modifier = new Rectangle(100.0, stripeThickness).translate(new Point2d(spacing,stripeThickness));
         mainEllipse.add(middleStripe);
         mainEllipse.remove(modifier);
         return mainEllipse;
-
-
     }
 
     // TODO
@@ -57,7 +44,11 @@ public final class LetterFactory {
     // TODO
     public static BaseShape create_o() {
         //O
-        BaseShape ellipse = new Ellipse(halfMaxWidth,halfMaxHeight);
+        Double spacing=2*stripeThickness;
+        BaseShape ellipse = new Ellipse(maxWidth,maxHeight);
+        for(int i = 0; i < spacing; i++) {
+            ellipse.add(new Ellipse(maxWidth-i,maxHeight-i));
+        }
         return ellipse;
     }
 
@@ -79,19 +70,15 @@ public final class LetterFactory {
     // TODO
     public static BaseShape create_r() {
         //R
-       /* Double degrees90 = Math.toRadians(90);
         Double spacing = stripeThickness * 2;
-        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
+        BaseShape mainStripe = new Rectangle(stripeThickness,maxHeight);
         BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing, 0.0));
-        BaseShape halfStripe = new Rectangle(stripeThickness, maxWidth);
-        BaseShape downStripe = halfStripe.rotate(degrees90).translate(new Point2d(0.0, -spacing));
-        leftStripe.add(downStripe);
-        return leftStripe;*/
-BaseShape mainStripe = new Rectangle(stripeThickness,maxHeight);
-        BaseShape leftStripe = mainStripe.translate(new Point2d(-halfMaxWidth, 0.0));
-        BaseShape topRound = new Ellipse(halfMaxWidth, halfMaxHeight);
-        BaseShape lowerStripe = new Rectangle(maxWidth, maxHeight).translate(new Point2d(stripeThickness/2,
-                halfMaxHeight/2 +stripeThickness));
+        BaseShape topRound=new Ellipse(maxWidth,maxHeight);
+        for(int i = 0; i < 2*stripeThickness; i++) {
+            topRound.add(new Ellipse(maxWidth-i,maxHeight-i));
+        }
+        BaseShape lowerStripe = new Rectangle(maxWidth, maxHeight).translate(new Point2d(0.0,
+                spacing));
         topRound.remove(lowerStripe);
         leftStripe.add(topRound);
         return leftStripe;
@@ -100,21 +87,16 @@ BaseShape mainStripe = new Rectangle(stripeThickness,maxHeight);
     // TODO
     public static BaseShape create_d() {
         //D
-       /* Double degrees90 = Math.toRadians(90);
         Double spacing = stripeThickness * 2;
-        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
-        BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing, 0.0));
-        BaseShape ellipse = new Ellipse(maxWidth,maxHeight);
-        BaseShape halfEllipse=ellipse.translate(new Point2d(0.0,0.0));
-        leftStripe.add(halfEllipse);
-        return leftStripe;*/
-
-        Double spacing = maxWidth/2 - stripeThickness/2;
-        BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
-        BaseShape rightStripe= mainStripe.translate(new Point2d(spacing+5.0,0.0));
-        for(int i = 0; i < 2*stripeThickness; i++) {
+        BaseShape mainStripe = new Ellipse(maxWidth,maxWidth).translate(new Point2d(0.0,spacing));
+        for(int i=0; i<spacing; i++){
             mainStripe.add(new Ellipse(maxWidth-i,maxWidth-i).translate(new Point2d(0.0,spacing)));
         }
+        mainStripe.add(new Rectangle(stripeThickness, maxHeight).translate(new Point2d(spacing,0.0)));
         return mainStripe;
     }
 }
+
+
+
+//                                           ARRANGER LES SPACINGS SUR LES TRANSLATIONS
