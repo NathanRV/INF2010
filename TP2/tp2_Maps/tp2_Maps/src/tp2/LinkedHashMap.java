@@ -67,13 +67,13 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return if key is already used in map
      */
     public boolean containsKey(KeyType key) {
-        Node <KeyType, DataType> getKey = map[getIndex(key)];
+        Node <KeyType, DataType> node = map[getIndex(key)];
 
-        while(getKey!=null) {
-            if (getKey.key.equals(key)) {
+        while(node!=null) {
+            if (node.key.equals(key)) {
                 return true;
             }
-            getKey=getKey.next;
+            node=node.next;
         }
         return false;
     }
@@ -84,11 +84,15 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return DataType instance attached to key (null if not found)
      */
     public DataType get(KeyType key) {
-        Node<KeyType, DataType> valueKey = map[getIndex(key)];
-        if (valueKey!=null){
-            return valueKey.data;
+        Node<KeyType, DataType> node = map[getIndex(key)];
+        while (node != null && !node.key.equals(key)) {
+            node = node.next;
         }
-        return null;
+        if (node != null) {
+            return node.data;
+        } else {
+            return null;
+        }
     }
 
     /** TODO
@@ -97,9 +101,7 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return Old DataType instance at key (null if none existed)
      */
     public DataType put(KeyType key, DataType value) {
-        if(shouldRehash()){
-            rehash();
-        }
+
         if(containsKey(key)){
             DataType oldVal=get(key);
             map[getIndex(key)].data=value;
@@ -117,8 +119,32 @@ public class LinkedHashMap<KeyType, DataType> {
                 map[getIndex(key)] = new Node<KeyType, DataType>(key, value);
             }
             size++;
+            if(shouldRehash()){
+                rehash();
+            }
             return null;
         }
+
+        /*DataType oldVal = null;
+        for(Node<KeyType,DataType> node=map[getIndex(key)];node != null; node = node.next){
+            if(node.key.equals(key)){
+                oldVal=node.data;
+                node.data=value;
+                return oldVal;
+            }
+        }
+        /*Node<KeyType,DataType> node=map[getIndex(key)];
+        if(node!=null){
+            node=node.next;
+        }
+        else {*/
+            /*map[getIndex(key)] = new Node<KeyType, DataType>(key, value);
+        //}
+        size++;
+        if (shouldRehash()) {
+            rehash();
+        }
+        return null;*/
     }
 
     /** TODO
@@ -127,9 +153,16 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return Old DataType instance at key (null if none existed)
      */
     public DataType remove(KeyType key) {
-        if(containsKey(key)){
-            DataType oldVal=map[getIndex(key)].data;
-            map[getIndex(key)]=null;
+        if(containsKey(key)) {
+            Node<KeyType, DataType> node = map[getIndex(key)];
+            while (node.key != key) {
+                node = node.next;
+            }
+            DataType oldVal=node.data;/*
+            if(map[getIndex(key)]==node) {
+                map[getIndex(key)] = node.next;
+            }*/
+            node=null;
             size--;
             return oldVal;
         }
