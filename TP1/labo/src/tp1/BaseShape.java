@@ -6,19 +6,17 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class BaseShape {
-    // Vous aller apprendre plus en details le fonctionnement d'un Set lors
-    // du cours sur les fonctions de hashage, vous pouvez considerez ceci comme une liste normale.
-    private Set<Point2d> coords;
+      private Set<Point2d> coords;
 
     // TODO Initialiser les points.
     public BaseShape() {
         coords=new HashSet<>();
-    }
+    } //create a new collection for the points
 
     // TODO prendre une liste de points et creer une nouvelle forme.
     public BaseShape(Collection<Point2d> coords) {
-        this.coords=new HashSet<>();
-        this.coords.addAll(coords);
+        this.coords=new HashSet<>(); // initialize the points
+        this.coords.addAll(coords);//add all the points
     }
 
     // TODO ajouter ou retirer des coordonnees a la liste de points.
@@ -51,7 +49,7 @@ public class BaseShape {
     // TODO appliquer la translation sur la forme.
     public BaseShape translate(Point2d point) {
         BaseShape baseShape=clone();
-        baseShape.coords=baseShape.translateAll(point);
+        baseShape.coords=baseShape.translateAll(point);// translate one point from the coordinates in BaseShape
         return baseShape;
     }
 

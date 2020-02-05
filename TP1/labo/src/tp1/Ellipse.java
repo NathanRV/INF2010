@@ -9,6 +9,7 @@ public class Ellipse extends BaseShape {
         double originWidth = widthRadius/2;
         double originHeight = heightRadius/2;
         for(int i = 0; i < widthRadius.intValue(); i++) {
+            //created an ellipse from the maths formula
             this.add(new Point2d(( i - originWidth), originHeight* Math.sqrt(1-(Math.pow((-widthRadius/2+i)/originWidth,2)))));
             this.add(new Point2d(( i - originWidth), originHeight*(-Math.sqrt(1-(Math.pow((-widthRadius/2+i)/originWidth,2))))));
         }

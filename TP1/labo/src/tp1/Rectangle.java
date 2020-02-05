@@ -10,6 +10,7 @@ public class Rectangle extends BaseShape {
         super();
        Double halfWidth = width/2;
        Double halfHeight= height/2;
+       //created a rectangle with the center as origin
         for (double i=-halfWidth; i<=halfWidth; i++){
             for (double j=-halfHeight; j<= halfHeight; j++){
                 this.add(new Point2d(i,j));
