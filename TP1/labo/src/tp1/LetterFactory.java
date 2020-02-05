@@ -7,7 +7,7 @@ public final class LetterFactory {
     final static Double halfMaxWidth = maxWidth / 2;
     final static Double stripeThickness = maxHeight / 10;
 
-    // TODO
+    // Lettre H
     public static BaseShape create_H() {
         Double spacing = stripeThickness*2;
         BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
@@ -19,9 +19,8 @@ public final class LetterFactory {
         return leftStripe;
     }
 
-    // TODO
+    // Lettre e
     public static BaseShape create_e() {
-        //E
         Double spacing = 2*stripeThickness;
         BaseShape middleStripe = new Rectangle(maxWidth, stripeThickness);
         BaseShape mainEllipse = new Ellipse(maxWidth, maxHeight);
@@ -34,16 +33,14 @@ public final class LetterFactory {
         return mainEllipse;
     }
 
-    // TODO
+    // Lettre l
     public static BaseShape create_l() {
-        //L
         BaseShape mainStripe = new Rectangle(stripeThickness, maxHeight);
         return mainStripe;
     }
 
-    // TODO
+    // Lettre O
     public static BaseShape create_o() {
-        //O
         Double spacing=2*stripeThickness;
         BaseShape ellipse = new Ellipse(maxWidth,maxHeight);
         for(int i = 0; i < spacing; i++) {
@@ -52,7 +49,7 @@ public final class LetterFactory {
         return ellipse;
     }
 
-    // On vous donne la lettre W comme exemple.
+    // Lettre W
     public static BaseShape create_W() {
         Double degrees15 = Math.toRadians(8);
         Double spacing = stripeThickness * 2;
@@ -67,9 +64,8 @@ public final class LetterFactory {
         return leftStripe;
     }
 
-    // TODO
+    // Lettre R
     public static BaseShape create_r() {
-        //R
         Double spacing = stripeThickness * 2;
         BaseShape mainStripe = new Rectangle(stripeThickness,maxHeight);
         BaseShape leftStripe = mainStripe.translate(new Point2d(-spacing, 0.0));
@@ -84,19 +80,15 @@ public final class LetterFactory {
         return leftStripe;
     }
 
-    // TODO
+    // Lettre D
     public static BaseShape create_d() {
-        //D
         Double spacing = stripeThickness * 2;
         BaseShape mainStripe = new Ellipse(maxWidth,maxWidth).translate(new Point2d(0.0,spacing));
         for(int i=0; i<spacing; i++){
-            mainStripe.add(new Ellipse(maxWidth-i,maxWidth-i).translate(new Point2d(0.0,spacing)));
+            mainStripe.add(new Ellipse(maxWidth-i,maxWidth-i)
+                    .translate(new Point2d(0.0,spacing)));
         }
         mainStripe.add(new Rectangle(stripeThickness, maxHeight).translate(new Point2d(spacing,0.0)));
         return mainStripe;
     }
 }
-
-
-
-//                                           ARRANGER LES SPACINGS SUR LES TRANSLATIONS
