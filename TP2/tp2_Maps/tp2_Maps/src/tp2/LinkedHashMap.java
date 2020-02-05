@@ -39,8 +39,8 @@ public class LinkedHashMap<KeyType, DataType> {
      * reassigns all contained values within the new map
      */
     private void rehash() {
-        int capacity = capacity* CAPACITY_INCREASE_FACTOR;
-        Node<KeyType, DataType> [] newMap = new Node<KeyType,DataType>[capacity];
+        int capacity = map.length* CAPACITY_INCREASE_FACTOR;
+        Node<KeyType, DataType> [] newMap = new Node[capacity];
         for (int i =0; i<map.length;i++){
             if(map[i] != null){
                 newMap[getIndex(map[i].key)]=new Node<KeyType, DataType>(map[i].key,map[i].data);
@@ -69,12 +69,12 @@ public class LinkedHashMap<KeyType, DataType> {
     public boolean containsKey(KeyType key) {
         Node <KeyType, DataType> getKey = map[getIndex(key)];
 
-        while(getKey!=null){
-            if(getKey == key){
+        while(getKey!=null) {
+            if (getKey.key.equals(key)) {
                 return true;
-
             }
-        //inserer instruction ici avec getkey pour mettre la valeur
+            getKey=getKey.next;
+        }
         return false;
     }
 
@@ -88,7 +88,6 @@ public class LinkedHashMap<KeyType, DataType> {
         if (valueKey!=null){
             return valueKey.data;
         }
-        }
         return null;
     }
 
@@ -98,7 +97,28 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return Old DataType instance at key (null if none existed)
      */
     public DataType put(KeyType key, DataType value) {
-        return null;
+        if(shouldRehash()){
+            rehash();
+        }
+        if(containsKey(key)){
+            DataType oldVal=get(key);
+            map[getIndex(key)].data=value;
+            return oldVal;
+        }
+        else{
+            if(map[getIndex(key)]!=null){
+                Node node=map[getIndex(key)];
+                while(node.next!=null) {
+                    node=node.next;
+                }
+                node.next = new Node<KeyType, DataType>(key, value);
+            }
+            else {
+                map[getIndex(key)] = new Node<KeyType, DataType>(key, value);
+            }
+            size++;
+            return null;
+        }
     }
 
     /** TODO
@@ -107,6 +127,12 @@ public class LinkedHashMap<KeyType, DataType> {
      * @return Old DataType instance at key (null if none existed)
      */
     public DataType remove(KeyType key) {
+        if(containsKey(key)){
+            DataType oldVal=map[getIndex(key)].data;
+            map[getIndex(key)]=null;
+            size--;
+            return oldVal;
+        }
         return null;
     }
 
@@ -114,7 +140,10 @@ public class LinkedHashMap<KeyType, DataType> {
      * Removes all nodes contained within the map
      */
     public void clear() {
-
+        for(int i=0; i<map.length;i++){
+            map[i]=null;
+        }
+        size=0;
     }
 
 
