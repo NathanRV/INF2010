@@ -41,12 +41,23 @@ public class LinkedHashMap<KeyType, DataType> {
     private void rehash() {
         int capacity = map.length* CAPACITY_INCREASE_FACTOR;
         Node<KeyType, DataType> [] newMap = new Node[capacity];
+        this.capacity=newMap.length;
         for (int i =0; i<map.length;i++){
-            if(map[i] != null){
-                newMap[getIndex(map[i].key)]=new Node<KeyType, DataType>(map[i].key,map[i].data);
+            if(map[i] != null) {
+                Node<KeyType, DataType> node = map[i];
+                while (node != null) {
+                    if (newMap[getIndex(node.key)] == null) {
+                        newMap[getIndex(node.key)] = new Node<KeyType, DataType>(node.key, node.data);
+                    }
+                    else {
+                        newMap[getIndex(node.key)].next = new Node<KeyType, DataType>(node.key, node.data);
+                    }
+                    node = node.next;
+                }
             }
         }
-        map = newMap;
+        this.map = newMap.clone();
+        int j;
     }
 
     public int size() {
@@ -155,13 +166,10 @@ public class LinkedHashMap<KeyType, DataType> {
     public DataType remove(KeyType key) {
         if(containsKey(key)) {
             Node<KeyType, DataType> node = map[getIndex(key)];
-            while (node.key != key) {
+            while (!node.key.equals(key)) {
                 node = node.next;
             }
-            DataType oldVal=node.data;/*
-            if(map[getIndex(key)]==node) {
-                map[getIndex(key)] = node.next;
-            }*/
+            DataType oldVal=node.data;
             node=null;
             size--;
             return oldVal;
