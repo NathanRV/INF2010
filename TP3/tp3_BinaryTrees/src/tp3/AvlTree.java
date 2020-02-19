@@ -1,8 +1,10 @@
 package tp3;
 
 import java.util.ArrayDeque;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.lang.*;
 
 public class AvlTree<ValueType extends Comparable<? super ValueType> > {
 
@@ -94,7 +96,35 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @return if parent node should balance
      */
     private boolean insert (ValueType value, BinaryNode<ValueType> currentNode){
-        return false;
+        //base case
+        /*if(currentNode==null){
+            currentNode.value=value;
+            return true; //balance
+        }*/
+        //3 cases
+        //recurrence
+        if(value.compareTo(currentNode.value)>0) {
+            if(currentNode.right==null){
+                currentNode.right= new BinaryNode<ValueType>(value,currentNode);
+                balance(currentNode); //TODO
+            }
+            else {
+                insert(value, currentNode.right);
+            }
+        }
+        else if(value.compareTo(currentNode.value)<0){
+            if(currentNode.left==null){
+                currentNode.left= new BinaryNode<ValueType>(value,currentNode);
+                balance(currentNode); //TODO
+            }
+            else {
+                insert(value, currentNode.left);
+            }
+        }
+        else{
+            ;  //if double, not insert
+        }
+        return true; //not balance
     }
 
     /** TODO O ( log n )
@@ -105,7 +135,31 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @return if parent node should balance
      */
     private boolean remove(ValueType value, BinaryNode<ValueType> currentNode) {
-        return false;
+        //Pre-condition
+        if(currentNode==null) return false;
+
+        if(value.compareTo(currentNode.value)>0){
+            return remove(value,currentNode.right);
+        }
+        else if(value.compareTo(currentNode.value)<0){
+            return remove(value,currentNode.left);
+        }
+        else if(currentNode.right != null || currentNode.left != null) {
+            currentNode.value = findMin(currentNode.right).value;
+            return remove(currentNode.value, currentNode.right);
+        }
+        else{
+            if(currentNode.parent==null){
+                this.root = (currentNode.left!=null) ? currentNode.left : currentNode.right;
+            }
+            else if(currentNode.parent.value.compareTo(currentNode.value)>0){
+                currentNode.parent.left =(currentNode.left != null) ? currentNode.left : currentNode.right;
+            }
+            else {
+                currentNode.parent.right = (currentNode.left != null) ? currentNode.left : currentNode.right;
+            }
+            return true;
+        }
     }
 
     /** TODO O( n )
@@ -113,6 +167,26 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param subTree SubTree currently being accessed to verify if it respects the AVL balancing rule
      */
     private void balance(BinaryNode<ValueType> subTree) {
+        //pre-condition
+        if(subTree==null) return;
+
+        //4 règles d'équilibre ou balancement
+        if(getLevelCount(subTree.left)-getLevelCount(subTree.right)>1){
+            if(getLevelCount(subTree.left.left)>=getLevelCount(subTree.left.right)){
+                rotateLeft(subTree); //not sure which node to pass
+            }
+            else{
+                doubleRotateOnLeftChild(subTree.left);//not sure which node to pass
+            }
+        }
+        else if(getLevelCount(subTree.right)-getLevelCount(subTree.left)>1){
+            if(getLevelCount(subTree.right.right)>=getLevelCount(subTree.right.left)){
+                rotateRight(subTree); //not sure which node to pass
+            }
+            else{
+                doubleRotateOnRightChild(subTree.right);//not sure which node to pass
+            }
+        }
     }
 
     /** TODO O( 1 )
@@ -120,6 +194,14 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of its left child
      */
     private void rotateLeft(BinaryNode<ValueType> node1){
+        BinaryNode<ValueType> node2 = node1.left;
+
+        node1.left=node2.right;
+        node2.right.parent=node1;
+
+        node2.right=node1;
+        node2.parent=node1.parent;
+        node1.parent=node2;
     }
 
     /** TODO O( 1 )
@@ -143,14 +225,26 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
     private void doubleRotateOnRightChild(BinaryNode<ValueType> node1){
     }
 
-    /** TODO O( log n )
+    /** TODO O( log n ) //not sure if O(log n) or O(n)
      * Verifies if the root tree contains value
      * @param value value to verify
      * @param currentNode Node currently being accessed in this recursive method
      * @return if value already exists in the root tree
      */
     private boolean contains(ValueType value, BinaryNode<ValueType> currentNode){
-        return false;
+        if(currentNode==null){
+            return false;
+        }
+
+        if(value.compareTo(currentNode.value)>0){
+            return contains(value,currentNode.right);
+        }
+        else if(value.compareTo(currentNode.value)<0){
+            return contains(value,currentNode.left);
+        }
+        else{  //if equal
+            return true;
+        }
     }
 
     /** TODO O( n )
@@ -158,7 +252,15 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @return Number of level contained in subTree including subTree node level
      */
     private int getLevelCount(BinaryNode<ValueType> subTree){
-        return 0;
+        if(subTree==null){
+            return 0;
+        }
+        else if(subTree.right != null || subTree.left != null){
+            return (Math.max(getLevelCount(subTree.right),getLevelCount(subTree.left))+1);
+        }
+        else {
+            return 1;
+        }
     }
 
     /** TODO O( log n )
@@ -166,7 +268,11 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @return Node which has the minimal value contained in our root tree
      */
     private BinaryNode<ValueType> findMin(BinaryNode<ValueType> currentNode) {
-        return null;
+        if(currentNode == null) return null;
+        if(currentNode.left != null){
+            return findMin(currentNode.left);
+        }
+        return currentNode;
     }
 
     /** TODO O( n )
@@ -175,6 +281,17 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param items List being modified to contain all values in the root tree in ascending order
      */
     private void infixOrder(BinaryNode<ValueType> currentNode, List<ValueType> items){
+        //check if smaller values
+        if(currentNode.left != null && !items.contains(currentNode.left.value)){
+            infixOrder(currentNode.left, items);
+        }
+        //add current value
+        if(!items.contains(currentNode.value))
+            items.add(currentNode.value);
+        //check if bigger value
+        if(currentNode.right!=null && !items.contains(currentNode.right.value)){
+            infixOrder(currentNode.right,items);
+        }
     }
 
     /** TODO O( n )
@@ -183,6 +300,19 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param items List being modified to contain all values in the root tree in level order from top to bottom
      */
     private void levelOrder(ArrayDeque<BinaryNode<ValueType>> nodesToCheck, List<ValueType> items) {
+        /*items.add(root.value);
+        items.add(root.left.value);
+        items.add(root.right.value);
+        nodesToCheck.add(root.left);
+        nodesToCheck.add(root.right);
+        while(!nodesToCheck.isEmpty()){
+            for(BinaryNode node : nodesToCheck){
+                items.add(node);
+            }
+            nodesToCheck.clear();
+            items.add(nodesToCheck.element().value);
+        }
+        nodesToCheck.element();*/
     }
     
     static class BinaryNode<ValueType> {
