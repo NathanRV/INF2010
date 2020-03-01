@@ -118,7 +118,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
         else{
             ;//if double, not insert
         }
-        return true; //not balance
+        return true;
     }
 
     /** TODO O ( log n )
@@ -130,9 +130,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      */
     private boolean remove(ValueType value, BinaryNode<ValueType> currentNode) {
         //Pre-condition
-       // if(currentNode==null) return false;
-
-        while (currentNode!=null) {
+       while (currentNode!=null) {
             if (value.compareTo(currentNode.value) > 0) {
                 return remove(value, currentNode.right);
 
@@ -168,7 +166,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
         //pre-condition
         if(subTree==null) return;
 
-        //4 règles d'équilibre ou balancement
+        //4 rules of balance
         if(getLevelCount(subTree.left)-getLevelCount(subTree.right)>1){
             if(getLevelCount(subTree.left.left)-getLevelCount(subTree.left.right)<0){
                 doubleRotateOnLeftChild(subTree);

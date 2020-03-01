@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a63b7068-f962-4dac-8811-a6525895809e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tp3_BinaryTrees/tp3/AvlTree$BinaryNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp3_BinaryTrees/tp3/AvlTree$BinaryNode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/tp3_BinaryTrees/tp3/AvlTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp3_BinaryTrees/tp3/AvlTree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tp3/AvlTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tp3/AvlTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
