@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a63b7068-f962-4dac-8811-a6525895809e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/.idea/tp2_Maps.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tests/Corrector.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tests/Corrector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tests/InterviewTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tests/InterviewTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tests/LinkedHashMapTester$KeyMock.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tests/LinkedHashMapTester$KeyMock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tests/LinkedHashMapTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tests/LinkedHashMapTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/Interview.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/Interview.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/LinkedHashMap$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/LinkedHashMap$Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/LinkedHashMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/LinkedHashMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/MatchingPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/out/production/tp2_Maps/tp2/MatchingPair.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/src/tp2/LinkedHashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../TP2/tp2_Maps/tp2_Maps/src/tp2/LinkedHashMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/tp3_BinaryTrees/tp3/AvlTree$BinaryNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp3_BinaryTrees/tp3/AvlTree$BinaryNode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/tp3_BinaryTrees/tp3/AvlTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/tp3_BinaryTrees/tp3/AvlTree.class" afterDir="false" />
@@ -122,25 +106,25 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1237" height="135" key="GridCell.Tab.0.bottom" timestamp="1583044647507">
+    <state width="1237" height="169" key="GridCell.Tab.0.bottom" timestamp="1583099297821">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="135" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1583044647507" />
+    <state width="1237" height="169" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1583099297821" />
     <state width="724" height="264" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582133787985" />
-    <state width="1237" height="135" key="GridCell.Tab.0.center" timestamp="1583044647506">
+    <state width="1237" height="169" key="GridCell.Tab.0.center" timestamp="1583099297821">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="135" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1583044647506" />
+    <state width="1237" height="169" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1583099297821" />
     <state width="724" height="264" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1582133787985" />
-    <state width="1237" height="135" key="GridCell.Tab.0.left" timestamp="1583044647506">
+    <state width="1237" height="169" key="GridCell.Tab.0.left" timestamp="1583099297821">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="135" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1583044647506" />
+    <state width="1237" height="169" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1583099297821" />
     <state width="724" height="264" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1582133787985" />
-    <state width="1237" height="135" key="GridCell.Tab.0.right" timestamp="1583044647506">
+    <state width="1237" height="169" key="GridCell.Tab.0.right" timestamp="1583099297821">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
-    <state width="1237" height="135" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1583044647506" />
+    <state width="1237" height="169" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1583099297821" />
     <state width="724" height="264" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582133787985" />
     <state width="724" height="264" key="GridCell.Tab.1.bottom" timestamp="1582133787986">
       <screen x="0" y="0" width="1536" height="824" />
