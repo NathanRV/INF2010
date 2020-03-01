@@ -135,27 +135,6 @@ public class LinkedHashMap<KeyType, DataType> {
             }
             return null;
         }
-
-        /*DataType oldVal = null;
-        for(Node<KeyType,DataType> node=map[getIndex(key)];node != null; node = node.next){
-            if(node.key.equals(key)){
-                oldVal=node.data;
-                node.data=value;
-                return oldVal;
-            }
-        }
-        /*Node<KeyType,DataType> node=map[getIndex(key)];
-        if(node!=null){
-            node=node.next;
-        }
-        else {*/
-            /*map[getIndex(key)] = new Node<KeyType, DataType>(key, value);
-        //}
-        size++;
-        if (shouldRehash()) {
-            rehash();
-        }
-        return null;*/
     }
 
     /** TODO

@@ -138,6 +138,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
         //Pre-condition
         if(currentNode==null) return false;
 
+
         if(value.compareTo(currentNode.value)>0){
             return remove(value,currentNode.right);
         }
@@ -170,6 +171,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
         //pre-condition
         if(subTree==null) return;
 
+
         //4 règles d'équilibre ou balancement
         if(getLevelCount(subTree.left)-getLevelCount(subTree.right)>1){
             if(getLevelCount(subTree.left.left)>=getLevelCount(subTree.left.right)){
@@ -187,6 +189,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
                 doubleRotateOnRightChild(subTree.right);//not sure which node to pass
             }
         }
+
     }
 
     /** TODO O( 1 )
@@ -194,6 +197,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of its left child
      */
     private void rotateLeft(BinaryNode<ValueType> node1){
+
         BinaryNode<ValueType> node2 = node1.left;
 
         node1.left=node2.right;
@@ -209,6 +213,22 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of its right child
      */
     private void rotateRight(BinaryNode<ValueType> node1){
+
+        BinaryNode<ValueType> rightChild = node1.right;
+        rightChild.parent= node1.parent;
+        node1.parent = rightChild;
+        if (rightChild.parent!=null) {
+            if (rightChild.parent.value.compareTo(rightChild.value) < 0)
+                rightChild.parent.right = rightChild;
+            else
+                rightChild.parent.left = rightChild;
+        }
+        else
+            root = rightChild;
+        node1.right = rightChild.left;
+        if (rightChild.left!=null)
+            rightChild.left.parent=node1;
+        rightChild.left = node1;
     }
 
     /** TODO O( 1 )
@@ -216,6 +236,8 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of the right child of its left child
      */
     private void doubleRotateOnLeftChild(BinaryNode<ValueType> node1){
+        rotateRight(node1.left);
+        rotateLeft(node1);
     }
 
     /** TODO O( 1 )
@@ -223,6 +245,8 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of the left child of its right child
      */
     private void doubleRotateOnRightChild(BinaryNode<ValueType> node1){
+        rotateLeft(node1.right);
+        rotateRight(node1);
     }
 
     /** TODO O( log n ) //not sure if O(log n) or O(n)
@@ -313,6 +337,18 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
             items.add(nodesToCheck.element().value);
         }
         nodesToCheck.element();*/
+
+        BinaryNode<ValueType> actualNode;
+        while(!nodesToCheck.isEmpty()){
+            actualNode = nodesToCheck.pollFirst();
+            if (actualNode.left != null)
+                nodesToCheck.addLast(actualNode.left);
+            if (actualNode.right != null)
+                nodesToCheck.addLast(actualNode.right);
+            items.add(actualNode.value);
+
+
+        }
     }
     
     static class BinaryNode<ValueType> {
