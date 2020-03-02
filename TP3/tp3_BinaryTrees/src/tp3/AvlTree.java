@@ -1,12 +1,10 @@
 package tp3;
 
 import java.util.ArrayDeque;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.lang.*;
 
-public class AvlTree<ValueType extends Comparable<? super ValueType> > {
+public class AvlTree<ValueType extends Comparable<? super ValueType>> {
 
     private BinaryNode<ValueType> root;
 
@@ -109,19 +107,19 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
         if (value.compareTo(currentNode.value) > 0) {
             if (currentNode.right == null) {
                 currentNode.right = new BinaryNode<ValueType>(value, currentNode);
-                balance(currentNode); //TODO
+                balance(currentNode);
             } else {
                 insert(value, currentNode.right);
             }
         } else if (value.compareTo(currentNode.value) < 0) {
             if (currentNode.left == null) {
                 currentNode.left = new BinaryNode<ValueType>(value, currentNode);
-                balance(currentNode); //TODO
+                balance(currentNode);
             } else {
                 insert(value, currentNode.left);
             }
         } else {
-            ;
+            return false; //if double no insert, no need to balance
         }
         return true;
     }
@@ -204,6 +202,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
         BinaryNode<ValueType> leftChild = node1.left;
         BinaryNode<ValueType> parentNode = node1.parent;
         leftChild.parent = parentNode;
+        node1.parent = leftChild;
 
         if (parentNode != null) {
             if (parentNode.value.compareTo(leftChild.value) < 0) {
@@ -228,16 +227,16 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
      * @param node1 Node to become child of its right child
      */
     private void rotateRight(BinaryNode<ValueType> node1) {
-
         BinaryNode<ValueType> rightChild = node1.right;
-        rightChild.parent = node1.parent;
+        BinaryNode<ValueType> parentNode = node1.parent;
+        rightChild.parent = parentNode;
         node1.parent = rightChild;
 
-        if (rightChild.parent != null) {
-            if (rightChild.parent.value.compareTo(rightChild.value) < 0) {
-                rightChild.parent.right = rightChild;
+        if (parentNode != null) {
+            if (parentNode.value.compareTo(rightChild.value) < 0) {
+                parentNode.right = rightChild;
             } else {
-                rightChild.parent.left = rightChild;
+                parentNode.left = rightChild;
             }
         } else {
             root = rightChild;
@@ -272,7 +271,7 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
     }
 
     /**
-     * TODO O( log n ) //not sure if O(log n) or O(n)
+     * TODO O( log n )
      * Verifies if the root tree contains value
      *
      * @param value       value to verify
@@ -360,8 +359,6 @@ public class AvlTree<ValueType extends Comparable<? super ValueType> > {
             if (actualNode.right != null)
                 nodesToCheck.addLast(actualNode.right);
             items.add(actualNode.value);
-
-
         }
     }
 
