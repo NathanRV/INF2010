@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+
     <list default="true" id="a63b7068-f962-4dac-8811-a6525895809e" name="Default Changelist" comment="" />
+    <list default="true" id="a63b7068-f962-4dac-8811-a6525895809e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tp3/AvlTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tp3/AvlTree.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +21,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/tp3/AvlTree.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1RfmVHjUpVVtMpkUhIa2AovNFIb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -101,6 +109,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+
     <state width="1237" height="63" key="GridCell.Tab.0.bottom" timestamp="1583125541934">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
@@ -122,21 +131,42 @@
     <state width="1237" height="63" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1583125541934" />
     <state width="724" height="264" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1582133787985" />
     <state width="724" height="264" key="GridCell.Tab.1.bottom" timestamp="1582133787986">
+    <state width="726" height="255" key="GridCell.Tab.0.bottom" timestamp="1583163656953">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="724" height="264" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1582133787986" />
-    <state width="724" height="264" key="GridCell.Tab.1.center" timestamp="1582133787985">
+    <state width="1237" height="63" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1583125496617" />
+    <state width="726" height="255" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583163656953" />
+    <state width="726" height="255" key="GridCell.Tab.0.center" timestamp="1583163656953">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="724" height="264" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1582133787985" />
-    <state width="724" height="264" key="GridCell.Tab.1.left" timestamp="1582133787985">
+    <state width="1237" height="63" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1583125496617" />
+    <state width="726" height="255" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1583163656953" />
+    <state width="726" height="255" key="GridCell.Tab.0.left" timestamp="1583163656952">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="724" height="264" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1582133787985" />
-    <state width="724" height="264" key="GridCell.Tab.1.right" timestamp="1582133787985">
+    <state width="1237" height="63" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1583125496617" />
+    <state width="726" height="255" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1583163656952" />
+    <state width="726" height="255" key="GridCell.Tab.0.right" timestamp="1583163656953">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="724" height="264" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1582133787985" />
+    <state width="1237" height="63" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1583125496617" />
+    <state width="726" height="255" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1583163656953" />
+    <state width="726" height="255" key="GridCell.Tab.1.bottom" timestamp="1583163656953">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="726" height="255" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1583163656953" />
+    <state width="726" height="255" key="GridCell.Tab.1.center" timestamp="1583163656953">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="726" height="255" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1583163656953" />
+    <state width="726" height="255" key="GridCell.Tab.1.left" timestamp="1583163656953">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="726" height="255" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1583163656953" />
+    <state width="726" height="255" key="GridCell.Tab.1.right" timestamp="1583163656953">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="726" height="255" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1583163656953" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1582082070053">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -160,53 +190,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>164</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>166</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>188</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>189</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
           <line>190</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>194</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>195</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>196</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>198</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/tests/AvlTreeTester.java</url>
-          <line>192</line>
-          <option name="timeStamp" value="40" />
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
