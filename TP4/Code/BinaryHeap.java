@@ -1,238 +1,225 @@
-import java.util.*; 
+import java.util.*;
 
 
-public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends AbstractQueue<AnyType>
-{
+public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends AbstractQueue<AnyType> {
     private static final int DEFAULT_CAPACITY = 100;
     private int currentSize;      // Nombre d'elements
-    private AnyType [ ] array;    // Tableau contenant les donnees (premier element a l'indice 1)
+    private AnyType[] array;    // Tableau contenant les donnees (premier element a l'indice 1)
     private boolean min;
     private int modifications;    // Nombre de modifications apportees a ce monceau
-    
-    @SuppressWarnings("unchecked")
-    public BinaryHeap( boolean min ){
-	    this.min = min;
-	    currentSize = 0;
-	    array = (AnyType[]) new Comparable[ DEFAULT_CAPACITY + 1];
-    }
-    
-    @SuppressWarnings("unchecked")
-    public BinaryHeap( AnyType[] items, boolean min ){
-	    this.min = min;
-	    // invoquez buildMinHeap() ou buildMaxHeap() en fonction du parametre min;
-        array = (AnyType[]) new Comparable[ DEFAULT_CAPACITY + 1];
 
-        for (int i = 1; i <= items.length; i++){
-            array[i] = items[i-1];
+    @SuppressWarnings("unchecked")
+    public BinaryHeap(boolean min) {
+        this.min = min;
+        currentSize = 0;
+        array = (AnyType[]) new Comparable[DEFAULT_CAPACITY + 1];
+    }
+
+    @SuppressWarnings("unchecked")
+    public BinaryHeap(AnyType[] items, boolean min) {
+        this.min = min;
+        // invoquez buildMinHeap() ou buildMaxHeap() en fonction du parametre min;
+        array = (AnyType[]) new Comparable[DEFAULT_CAPACITY + 1];
+
+        for (int i = 1; i <= items.length; i++) {
+            array[i] = items[i - 1];
             currentSize++;
         }
-        if (min){
+        if (min) {
             buildMinHeap();
-        }
-        else {
+        } else {
             buildMaxHeap();
         }
     }
-    
-    public boolean offer( AnyType x ){
-	    if (x == null)
-	        throw new NullPointerException("Cannot insert null in a BinaryHeap");
-	
-	    if( currentSize + 1 == array.length )
-	        doubleArray();
+
+    public boolean offer(AnyType x) {
+        if (x == null)
+            throw new NullPointerException("Cannot insert null in a BinaryHeap");
+
+        if (currentSize + 1 == array.length)
+            doubleArray();
 
         int hole = ++currentSize;
 
-        if(min){
-            for (;hole>1 && x.compareTo(array[hole/2]) < 0; hole/=2){
-                array[hole]=array[hole/2];
+        if (min) {
+            for (; hole > 1 && x.compareTo(array[hole / 2]) < 0; hole /= 2) {
+                array[hole] = array[hole / 2];
             }
-        }
-        else{
-            for (;hole>1 && x.compareTo(array[hole/2]) > 0; hole/=2){
-                array[hole]=array[hole/2];
+        } else {
+            for (; hole > 1 && x.compareTo(array[hole / 2]) > 0; hole /= 2) {
+                array[hole] = array[hole / 2];
             }
         }
 
-        array[hole]=x;
-
+        array[hole] = x;
         modifications++;
-	
-	    return true;
+        return true;
     }
-    
-    public AnyType peek(){
-	    if(!isEmpty())
-	    return array[1];
-	
-	    return null;
+
+    public AnyType peek() {
+        if (!isEmpty())
+            return array[1];
+
+        return null;
     }
-    
-    public AnyType poll(){
-        if(isEmpty())
+
+    public AnyType poll() {
+        if (isEmpty())
             return null;
 
-        AnyType tmp = array[1];
+        AnyType tmp = peek();
         array[1] = array[currentSize--];
 
-        if(min){
+        if (min) {
             percolateDownMinHeap(1, currentSize);
-        }
-        else{
+        } else {
             percolateDownMaxHeap(1, currentSize);
         }
 
         modifications++;
-    	return tmp;
+        return tmp;
     }
-    
-    public Iterator<AnyType> iterator(){
-	    return new HeapIterator();
+
+    public Iterator<AnyType> iterator() {
+        return new HeapIterator();
     }
-    
-    private void buildMinHeap(){
-        for (int i = currentSize; i > 0; i--)
+
+    private void buildMinHeap() {
+        for (int i = currentSize / 2; i > 0; i--)
             percolateDownMinHeap(array, i, currentSize, true);
     }
-    
-    private void buildMaxHeap(){
-        for (int i = currentSize; i > 0; i--)
+
+    private void buildMaxHeap() {
+        for (int i = currentSize / 2; i > 0; i--)
             percolateDownMaxHeap(array, i, currentSize, true);
     }
-    
-    public boolean isEmpty(){
-	    return currentSize == 0;
+
+    public boolean isEmpty() {
+        return currentSize == 0;
     }
-    
-    public int size(){
-	    return currentSize;
+
+    public int size() {
+        return currentSize;
     }
-    
-    public void clear(){
-	    currentSize = 0;
-	    modifications = 0;
-	    array = (AnyType[]) new Comparable[ DEFAULT_CAPACITY + 1];
+
+    public void clear() {
+        currentSize = 0;
+        modifications = 0;
+        array = (AnyType[]) new Comparable[DEFAULT_CAPACITY + 1];
     }
-    
-    private static int leftChild( int i, boolean heapIndexing ){
-	            return ( heapIndexing ? 2*i : 2*i+1 );
+
+    private static int leftChild(int i, boolean heapIndexing) {
+        return (heapIndexing ? 2 * i : 2 * i + 1);
     }
-    
-    private void swapReferences( int index1, int index2 ){
-	    swapReferences(array, index1, index2);
+
+    private void swapReferences(int index1, int index2) {
+        swapReferences(array, index1, index2);
     }
-    
+
     private static <AnyType extends Comparable<? super AnyType>>
-				    void swapReferences( AnyType[] array, int index1, int index2 ){
-	
-    	AnyType tmp = array[ index1 ];
-	    array[ index1 ] = array[ index2 ];
-	    array[ index2 ] = tmp;
+    void swapReferences(AnyType[] array, int index1, int index2) {
+
+        AnyType tmp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = tmp;
     }
-    
+
     @SuppressWarnings("unchecked")
-	private void doubleArray(){
-	    AnyType [ ] newArray;
-	
-	    newArray = (AnyType []) new Comparable[ array.length * 2 ];
-	for( int i = 0; i < array.length; i++ )
-	    newArray[ i ] = array[ i ];
-	    array = newArray;
+    private void doubleArray() {
+        AnyType[] newArray;
+
+        newArray = (AnyType[]) new Comparable[array.length * 2];
+        for (int i = 0; i < array.length; i++)
+            newArray[i] = array[i];
+        array = newArray;
     }
-    
-    
+
+
     /**
-     * @param hole    Position a percoler
-     * @param size    Indice max du tableau
+     * @param hole Position a percoler
+     * @param size Indice max du tableau
      */
-    private void percolateDownMinHeap( int hole, int size ){
-	     percolateDownMinHeap(array, hole, size, true);
+    private void percolateDownMinHeap(int hole, int size) {
+        percolateDownMinHeap(array, hole, size, true);
     }
-    
+
     /**
-     * @param array   Tableau d'element
-     * @param hole    Position a percoler
-     * @param size    Indice max du tableau
-     * @param heapIndexing  True si les elements commencent a l'index 1, false sinon
+     * @param array        Tableau d'element
+     * @param hole         Position a percoler
+     * @param size         Indice max du tableau
+     * @param heapIndexing True si les elements commencent a l'index 1, false sinon
      */
     private static <AnyType extends Comparable<? super AnyType>>
-				    void percolateDownMinHeap( AnyType[] array, int hole, int size, boolean heapIndexing )
-    {
+    void percolateDownMinHeap(AnyType[] array, int hole, int size, boolean heapIndexing) {
         int child;
         AnyType tmp = array[hole];
-        for (;  leftChild(hole, heapIndexing) <= (heapIndexing ? size : size - 1); hole = child) {
-            child = leftChild(hole,heapIndexing);
+        for (; leftChild(hole, heapIndexing) <= (heapIndexing ? size : size - 1); hole = child) {
+            child = leftChild(hole, heapIndexing);
             while (child != (heapIndexing ? size : size - 1) && array[child + 1].compareTo(array[child]) < 0) {
                 child++;
             }
-            if (tmp == null || array[child].compareTo(tmp) < 0) {
+            if (array[child].compareTo(tmp) < 0) {
                 array[hole] = array[child];
-            }
-            else{
+            } else {
                 break;
             }
         }
         array[hole] = tmp;
     }
-    
+
     /**
-     * @param hole    Position a percoler
-     * @param size    Indice max du tableau
+     * @param hole Position a percoler
+     * @param size Indice max du tableau
      */
-    private void percolateDownMaxHeap( int hole, int size ){
-	    percolateDownMaxHeap(array, hole, size, true);
+    private void percolateDownMaxHeap(int hole, int size) {
+        percolateDownMaxHeap(array, hole, size, true);
     }
-    
+
     /**
-     * @param array         Tableau d'element
-     * @param hole          Position a percoler
-     * @param size          Indice max du tableau
-     * @param heapIndexing  True si les elements commencent a l'index 1, false sinon
+     * @param array        Tableau d'element
+     * @param hole         Position a percoler
+     * @param size         Indice max du tableau
+     * @param heapIndexing True si les elements commencent a l'index 1, false sinon
      */
-    private static <AnyType extends Comparable<? super AnyType>> 
-				    void percolateDownMaxHeap( AnyType[] array, int hole, int size, boolean heapIndexing )
-    {
+    private static <AnyType extends Comparable<? super AnyType>>
+    void percolateDownMaxHeap(AnyType[] array, int hole, int size, boolean heapIndexing) {
         int child;
         AnyType tmp = array[hole];
-        for (;  leftChild(hole, heapIndexing) <= (heapIndexing ? size : size - 1); hole = child) {
-            child = leftChild(hole,heapIndexing);
+        for (; leftChild(hole, heapIndexing) <= (heapIndexing ? size : size - 1); hole = child) {
+            child = leftChild(hole, heapIndexing);
             if (child != (heapIndexing ? size : size - 1) && array[child + 1].compareTo(array[child]) > 0) {
                 child++;
             }
-            if (tmp == null || array[child].compareTo(tmp) > 0) {
+            if (array[child].compareTo(tmp) > 0) {
                 array[hole] = array[child];
-            }
-            else{
+            } else {
                 break;
             }
         }
         array[hole] = tmp;
     }
-    
+
     public static <AnyType extends Comparable<? super AnyType>>
-				   void heapSort( AnyType[] a )
-    {
-        for(int i = a.length; i > 0; i--)
-            percolateDownMaxHeap(a, i-1, a.length, false);
-        for(int i = a.length-1; i > 0 ; i--){
-            swapReferences(a, 0 , i);
+    void heapSort(AnyType[] a) {
+        for (int i = a.length / 2 - 1; i >= 0; i--)
+            percolateDownMaxHeap(a, i, a.length, false);
+        for (int i = a.length - 1; i >= 0; i--) {
+            swapReferences(a, 0, i);
             percolateDownMaxHeap(a, 0, i, false);
         }
     }
-    
+
     public static <AnyType extends Comparable<? super AnyType>>
-				   void heapSortReverse( AnyType[] a )
-    {
-        for(int i = a.length; i > 0; i--)
-            percolateDownMinHeap(a, i-1, a.length, false);
-        for(int i = a.length-1; i > 0 ; i--){
-            swapReferences(a, 0 , i);
+    void heapSortReverse(AnyType[] a) {
+        for (int i = a.length / 2 - 1; i >= 0; i--)
+            percolateDownMinHeap(a, i, a.length, false);
+        for (int i = a.length - 1; i >= 0; i--) {
+            swapReferences(a, 0, i);
             percolateDownMinHeap(a, 0, i, false);
         }
     }
-    
-    public String nonRecursivePrintFancyTree()
-    {
+
+    public String nonRecursivePrintFancyTree() {
         //TODO
         String outputString = "";
 
@@ -245,39 +232,37 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends Abs
         tabIndex.add(1);
         tabPrefix.add("");
 
-        while(!tabVal.isEmpty())
-        {
+        while (!tabVal.isEmpty()) {
             //Valeurs temporaires
             AnyType valeur = tabVal.pop();
             Integer index = tabIndex.pop();
             String _prefix = tabPrefix.pop();
-            outputString+= _prefix;
-            outputString+= "|__";
+            outputString += _prefix;
+            outputString += "|__";
             outputString += valeur + "\n";
 
             //dernier enfant est null (droite == null)
-            if((index == currentSize) && (index%2 == 0))
-            {
-                outputString+= _prefix;
-                outputString+= "|__";
+            if ((index == currentSize) && (index % 2 == 0)) {
+                outputString += _prefix;
+                outputString += "|__";
                 outputString += "null\n";
             }
 
-            if( index%2 == 0 )
+            if (index % 2 == 0)
                 _prefix += "|  "; // un | et trois espace
             else
-                _prefix += "   " ; // quatre espaces
+                _prefix += "   "; // quatre espaces
 
-            if(index*2+1 <= currentSize ) // enfant de droite
+            if (index * 2 + 1 <= currentSize) // enfant de droite
             {
-                tabVal.addFirst(array[index*2+1]);
-                tabIndex.addFirst(index*2 +1);
+                tabVal.addFirst(array[index * 2 + 1]);
+                tabIndex.addFirst(index * 2 + 1);
                 tabPrefix.addFirst(_prefix);
             }
-            if(index*2 <= currentSize)  //enfant de gauche
+            if (index * 2 <= currentSize)  //enfant de gauche
             {
-                tabVal.addFirst(array[index*2]);
-                tabIndex.addFirst(index*2);
+                tabVal.addFirst(array[index * 2]);
+                tabIndex.addFirst(index * 2);
                 tabPrefix.addFirst(_prefix);
             }
 
@@ -285,42 +270,38 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends Abs
 
         return outputString;
     }
-    
-    public String printFancyTree()
-    {
+
+    public String printFancyTree() {
         return printFancyTree(1, "");
     }
-    
-    private String printFancyTree( int index, String prefix)
-    {
+
+    private String printFancyTree(int index, String prefix) {
         String outputString = "";
 
         outputString = prefix + "|__";
 
-        if( index <= currentSize )
-        {
-            boolean isLeaf = index > currentSize/2;
+        if (index <= currentSize) {
+            boolean isLeaf = index > currentSize / 2;
 
-            outputString += array[ index ] + "\n";
+            outputString += array[index] + "\n";
 
             String _prefix = prefix;
 
-            if( index%2 == 0 )
+            if (index % 2 == 0)
                 _prefix += "|  "; // un | et trois espace
             else
-                _prefix += "   " ; // quatre espaces
+                _prefix += "   "; // quatre espaces
 
-            if( !isLeaf ) {
-                outputString += printFancyTree( 2*index, _prefix);
-                outputString += printFancyTree( 2*index + 1, _prefix);
+            if (!isLeaf) {
+                outputString += printFancyTree(2 * index, _prefix);
+                outputString += printFancyTree(2 * index + 1, _prefix);
             }
-        }
-        else
+        } else
             outputString += "null\n";
 
         return outputString;
     }
-    
+
     private class HeapIterator implements Iterator {
         private int currentIndex = 1;
         private int modsIt = modifications;
@@ -330,19 +311,18 @@ public class BinaryHeap<AnyType extends Comparable<? super AnyType>> extends Abs
         }
 
         public Object next() throws NoSuchElementException,
-                        ConcurrentModificationException,
-                        UnsupportedOperationException {
-            if(!hasNext()){
+                ConcurrentModificationException,
+                UnsupportedOperationException {
+            if (!hasNext()) {
                 throw new NoSuchElementException("L'itérateur a dépassé l'index maximal.");
-            }
-            else if(modsIt != modifications){
-                throw  new ConcurrentModificationException("Modifications durant l'itération!");
+            } else if (modsIt != modifications) {
+                throw new ConcurrentModificationException("Modifications durant l'itération!");
             }
             return array[currentIndex++];
         }
 
         public void remove() {
-	        throw new UnsupportedOperationException();
-	    }
+            throw new UnsupportedOperationException();
+        }
     }
 }

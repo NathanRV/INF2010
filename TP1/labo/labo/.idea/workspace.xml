@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="83332c6c-799b-4fa4-8e24-337e24cfed21" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="171" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\cassy\OneDrive\Desktop\Poly\INF2010\INF2010\TP1\labo\labo\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1X5EaWLEbV48CvzrG6r1xcPfgHu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <envs>
+        <env name="TESSDATA_PREFIX" value="/C:\Users\cassy\OneDrive\Desktop\Poly\INF2010\INF2010\TP1\labo\labo\tessdata" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="tp1.Main" />
+      <module name="corrige" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <envs>
+        <env name="TESSDATA_PREFIX" value="/C:\Users\cassy\OneDrive\Desktop\Poly\INF2010\INF2010\TP1\labo\labo\tessdata" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="tp1.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83332c6c-799b-4fa4-8e24-337e24cfed21" name="Default Changelist" comment="" />
+      <created>1580327619411</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580327619411</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="97" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580340727050">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="97" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1580340727050" />
+    <state x="371" y="146" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580339914363">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="371" y="146" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.720@0.0.1280.720" timestamp="1580339914363" />
+    <state x="376" y="124" key="EnvironmentVariablesDialog" timestamp="1580340118647">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="376" y="124" key="EnvironmentVariablesDialog/0.0.1280.720@0.0.1280.720" timestamp="1580340118647" />
+    <state x="422" y="117" key="FileChooserDialogImpl" timestamp="1580621547766">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="422" y="117" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1580621547766" />
+    <state width="1237" height="199" key="GridCell.Tab.0.bottom" timestamp="1580621457398">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="199" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1580621457398" />
+    <state width="1237" height="199" key="GridCell.Tab.0.center" timestamp="1580621457398">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="199" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1580621457398" />
+    <state width="1237" height="199" key="GridCell.Tab.0.left" timestamp="1580621457398">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="199" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1580621457398" />
+    <state width="1237" height="199" key="GridCell.Tab.0.right" timestamp="1580621457398">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="199" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1580621457398" />
+    <state x="122" y="0" key="SettingsEditor" timestamp="1580339214721">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="122" y="0" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1580339214721" />
+    <state x="338" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1580327699156">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="338" y="186" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1580327699156" />
+    <state x="448" y="279" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580450366872">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="448" y="279" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.720@0.0.1280.720" timestamp="1580450366872" />
+    <state x="298" y="161" key="run.anything.popup" timestamp="1580449842370">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="298" y="161" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1580449842370" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/labo$Main.ic" NAME="Main Coverage Results" MODIFIED="1580355196664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
