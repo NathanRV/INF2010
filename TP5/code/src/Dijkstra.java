@@ -1,0 +1,129 @@
+import java.util.*;
+
+
+public class Dijkstra {
+	private Graph graph;
+	private Map<Node, Edge> dijkstraTable[];
+	private Stack<Edge> path;
+
+	public Dijkstra (Graph g) {
+		this.graph = g;
+	}
+
+	public void findPath(Node s, Node d) {
+		dijkstraTable = new HashMap[graph.getNodes().size()];
+		path = new Stack<Edge>();
+
+		//Initialise dijsktraTable
+		for(int j = 0; j < graph.getNodes().size(); j++){
+			dijkstraTable[j] = new HashMap<Node, Edge>();
+		}
+
+		List<Node> checkedNodes = new LinkedList<>();
+		checkedNodes.add(s);
+		dijkstraTable[0].put(s,new Edge(s,s,0));
+		List<Edge> edgesToCheck = graph.getEdgesGoingFrom(s);
+		int counter = 1;
+		while (!edgesToCheck.isEmpty() && !checkedNodes.contains(d)){
+
+			//Find shortest edge
+			Edge min = edgesToCheck.get(0);
+			Edge currentEdge = null;
+			Edge previousEdge;
+			int previousDistance = 0 ;
+			for(Edge edge : edgesToCheck){
+				previousEdge = null;
+				int copyCounter = counter;
+				while(previousEdge == null) {
+					previousEdge = dijkstraTable[--copyCounter].get(edge.getSource());
+				}
+				previousDistance = previousEdge.getDistance();
+
+				if(dijkstraTable[counter].containsKey(edge.getDestination())) {
+					currentEdge = dijkstraTable[counter].get(edge.getDestination());
+					if (edge.getDistance() + previousDistance < currentEdge.getDistance()) {
+						Edge edgeToAdd = new Edge(edge.getSource(), edge.getDestination(), edge.getDistance()+previousDistance);
+						dijkstraTable[counter].replace(edge.getDestination(), edgeToAdd);
+					}
+				}
+				else {
+					Edge edgeToAdd = new Edge(edge.getSource(), edge.getDestination(), edge.getDistance()+previousDistance);
+					dijkstraTable[counter].put(edge.getDestination(), edgeToAdd);
+				}
+				min = getMinimum(min, edge);
+			}
+
+			//Add new edges to check
+			edgesToCheck.addAll(graph.getEdgesGoingFrom(min.getDestination()));
+
+			//Add node to checked
+			checkedNodes.add(min.getDestination());
+
+			//Erase edges that lead to node already checked
+			Iterator<Edge> itr = edgesToCheck.iterator();
+			while(itr.hasNext()){
+				Edge edge = itr.next();
+				if(checkedNodes.contains(edge.getDestination()))
+					itr.remove();
+			}
+
+			counter ++;
+		}
+
+		//From table retrace path
+		Edge minEdge = null;
+		for(int i = 0 ; i < counter ; i++){
+			minEdge = new Edge(s,d,Integer.MAX_VALUE);
+			for (Edge edge : dijkstraTable[i].values()){
+				if(path.isEmpty() || edge.getSource() == path.peek().getDestination())
+					minEdge = getMinimum(minEdge, edge);
+			}
+			if(path.isEmpty() || minEdge.getSource() == path.peek().getDestination())
+				path.add(minEdge);
+		}
+	}
+
+	private Node getMinimum(Map<Node, Edge> map) {
+		Edge min = null;
+		for (Node Key : map.keySet()) {
+			if ( min == null || map.get(Key).getDistance() < min.getDistance()) {
+				min = map.get(Key); 
+			}
+		}
+		return min.getDestination();
+	}
+
+	private Edge getMinimum (Edge e1, Edge e2) {
+		if(e2.getDistance()<e1.getDistance())
+			return e2;
+		return e1;
+	}
+	
+
+	public void showTable() {
+		// TODO
+		
+	}
+
+	public String printShortPath(Node source, Node destination) {
+		this.findPath(source,destination);
+		StringBuilder chemin = new StringBuilder();
+		Edge lastEdge = path.pop();
+
+		int longeurDuChemin = lastEdge.getDistance();
+		chemin.append(lastEdge.getDestination().getName() + " ");
+
+		while (!path.empty()){
+			if (!path.empty() && path.peek().getDestination() == lastEdge.getSource()){
+				chemin.append(lastEdge.getSource().getName() + " ");
+				lastEdge = path.pop();
+			}
+			else{
+				path.pop();
+			}
+		}
+		System.out.print("La longueur du plus court chemin est : ");
+		System.out.println(longeurDuChemin);
+		return "Le chemin le plus court est : " + chemin.reverse().toString();
+	}
+}
