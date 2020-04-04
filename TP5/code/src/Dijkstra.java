@@ -140,7 +140,7 @@ public class Dijkstra {
 		StringBuilder chemin = new StringBuilder();
 		Edge lastEdge = path.pop();
 
-		int longeurDuChemin = lastEdge.getDistance();
+		int longueurDuChemin = lastEdge.getDistance();
 		chemin.append(lastEdge.getDestination().getName() + " ");
 
 		while (!path.empty()){
@@ -153,7 +153,7 @@ public class Dijkstra {
 			}
 		}
 		System.out.print("La longueur du plus court chemin est : ");
-		System.out.println(longeurDuChemin);
+		System.out.println(longueurDuChemin);
 		return "Le chemin le plus court est : " + chemin.reverse().toString();
 	}
 }
