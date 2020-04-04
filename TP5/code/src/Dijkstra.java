@@ -101,8 +101,38 @@ public class Dijkstra {
 	
 
 	public void showTable() {
-		// TODO
-		
+
+		List<Node> output = new ArrayList<>();
+		System.out.print("Iteration ");
+		for (Node node: graph.getNodes()){
+			System.out.print(node.getName() + " ");
+			output.add(node);
+		}
+
+		System.out.println();
+		for (int i = 0; i < dijkstraTable.length; i++) {
+			System.out.print("    " + (i + 1));
+			for (int k = 0; k < 5 - (i + 1) / 10; k++)
+				System.out.print(" ");
+			for (int j = 0; j < dijkstraTable.length; j++) {
+				if (dijkstraTable[i].containsKey(output.get(j))) {
+					System.out.print(dijkstraTable[i].get(output.get(j)).getDistance() + dijkstraTable[i].get(output.get(j)).getSource().getName());
+				} else {
+					boolean ignoreThis = false;
+					for (int k = 0; k < i; k++) {
+						if (dijkstraTable[k].containsKey(output.get(j))) {
+							ignoreThis = true;
+							break;
+						}
+					}
+					if (ignoreThis) System.out.print("  ");
+					else System.out.print("..");
+				}
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+
 	}
 
 	public String printShortPath(Node source, Node destination) {
