@@ -6,46 +6,50 @@ public class Graph {
 
 	private List<Node> nodes; // Noeuds
 	private List<Edge> edges; // Les arcs
-	
+
 	public Graph() {
-		// TODO
+		// A compléter
 		nodes = new LinkedList<>();
 		edges = new LinkedList<>();
 	}
-	
+
 	public List<Edge> getEdgesGoingFrom(Node source) {
-		// TODO
+		// A compléter
 		List<Edge> edgesGoingFrom = new LinkedList<>();
-		for(Edge edge : edges){
-			if(source == edge.getSource()){
+		for (Edge edge : edges) {
+			if (source == edge.getSource()) {
 				edgesGoingFrom.add(edge);
 			}
 		}
 		return edgesGoingFrom;
 	}
+
 	public List<Edge> getEdgesGoingTo(Node dest) {
-		// TODO
+		// A compléter
 		List<Edge> edgesGoingTo = new LinkedList<>();
-		for(Edge edge : edges){
-			if(dest == edge.getDestination()){
+		for (Edge edge : edges) {
+			if (dest == edge.getDestination()) {
 				edgesGoingTo.add(edge);
 			}
 		}
 		return edgesGoingTo;
 	}
-	
-	// Accesseurs 
+
+	// Accesseurs
 	public List<Node> getNodes() {
 		return nodes;
 	}
+
 	public void setNodes(List<Node> nodes) {
 		this.nodes = nodes;
 	}
+
 	public List<Edge> getEdges() {
 		return edges;
 	}
+
 	public void setEdges(List<Edge> edges) {
 		this.edges = edges;
 	}
-	
+
 }
